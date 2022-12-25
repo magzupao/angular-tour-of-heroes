@@ -25,3 +25,80 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+step to step
+
+1. creamos el proyecto
+ng new angular-tour-of-heroes
+
+2. ejecutamos el proyecto
+ng serve --open
+
+3. cambiamos el titulo de la aplicacion
+app.component.ts
+
+title = 'Tour of Heroes';
+
+4. el titulo se visualiza en la interface html en este tag:
+<span>{{ title }} app is running!</span>
+
+5. en el archivo que existe src/styles.css y esta vacio, ingresamos estos valores;
+
+/* Application-wide Styles */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+}
+body, input[type="text"], button {
+  color: #333;
+  font-family: Cambria, Georgia, serif;
+}
+button {
+  background-color: #eee;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: black;
+  font-size: 1.2rem;
+  padding: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+button:hover {
+  background-color: black;
+  color: white;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+6. creamos un componente
+ng generate component heroes
+
+7. generado el componente en la interfas html tiene un mensaje estatico, vamos a modificar
+el fichero ts para incluir una variable y que el valor se visualice en el html
+
+heroes.component.ts
+hero = 'Windstorm';
+
+heroes.component.html
+<h2>{{hero}}</h2>
+
+8. generado el componente incluimos un tag en app.componente.html para visualizar el contenido:
