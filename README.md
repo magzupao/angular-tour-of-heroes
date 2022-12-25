@@ -122,3 +122,48 @@ export class HeroesComponent implements OnInit {
     id: 1,
     name: 'Windstorm'
   };
+
+12. relacionamos el modelo con la vista Two-way binding
+<div>
+  <label for="name">Hero name: </label>
+  <input id="name" [(ngModel)]="hero.name" placeholder="name">
+</div>
+
+produce un error no reconoce ngModel porque necesita FormsModule
+
+modificamos app.module.ts agregando:
+import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+
+imports: [
+  FormsModule
+],
+
+Nota. por defecto al crear los componente estos ya se incluyeron en el modulo de esta forma, solo es comprobar:
+@NgModule({
+  declarations: [
+    AppComponent,
+    HeroesComponent
+  ],
+
+13. creamos una lista para visualizar en la vista, creamos un mock; mock-heroes.ts
+import { Hero } from './hero';
+
+export const HEROES: Hero[] = [
+  { id: 12, name: 'Dr. Nice' },
+  { id: 13, name: 'Bombasto' },
+  { id: 14, name: 'Celeritas' },
+  { id: 15, name: 'Magneta' },
+  { id: 16, name: 'RubberMan' },
+  { id: 17, name: 'Dynama' },
+  { id: 18, name: 'Dr. IQ' },
+  { id: 19, name: 'Magma' },
+  { id: 20, name: 'Tornado' }
+];
+
+14. para visualizar en la vista agregamos en heroes.component.ts lo siguiente
+
+import { HEROES } from '../mock-heroes';
+
+heroes = HEROES;
+
+15. hacemos un iterate en la vista para pintar la lista de objetos HEROES

@@ -1,1 +1,10 @@
-<h2>{{hero.name}}</h2>
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li>
+    <button type="button">
+      <span class="badge">{{hero.id}}</span>
+      <span class="name">{{hero.name}}</span>
+    </button>
+  </li>
+</ul>
+<li *ngFor="let hero of heroes">{{hero.name}}</li>
