@@ -102,3 +102,23 @@ heroes.component.html
 <h2>{{hero}}</h2>
 
 8. generado el componente incluimos un tag en app.componente.html para visualizar el contenido:
+    <app-heroes></app-heroes>
+
+9. creamos el modelo llamado interface por Angular, lo creamos en el componente directorio
+hero.ts
+
+export interface Hero {
+  id: number;
+  name: string;
+}
+
+10. vamos modificando el proyecto inicializado el servicio asi detectamos errores
+ng serve
+
+11. modificamos heroes.componente.ts para incluir la interface
+
+export class HeroesComponent implements OnInit {
+  hero: Hero = {
+    id: 1,
+    name: 'Windstorm'
+  };
