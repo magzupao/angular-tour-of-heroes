@@ -167,3 +167,10 @@ import { HEROES } from '../mock-heroes';
 heroes = HEROES;
 
 15. hacemos un iterate en la vista para pintar la lista de objetos HEROES
+
+16. agregamos un evento para dispararlo desde un boton, agregamos el metodo en heroes.component.ts
+
+selectedHero?: Hero;
+onSelect(hero: Hero): void {
+  this.selectedHero = hero;
+}
