@@ -174,3 +174,30 @@ selectedHero?: Hero;
 onSelect(hero: Hero): void {
   this.selectedHero = hero;
 }
+
+17. creamos un servicio detalle para separar funcionalidades por componente, uno es lista y otro es el detalle
+ng generate component hero-detail
+
+18. escribimos el hero-detail.component.html
+<div *ngIf="hero">
+
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+  </div>
+
+</div>
+
+19. modificamos hero-detail.component.ts
+import { Component, OnInit, Input } from '@angular/core';     // agregamos el Input
+import { Hero } from '../heroes/hero';
+
+export class HeroDetailComponent implements OnInit {
+  @Input() hero?: Hero;
+
+20. modificamos el heroes.component.html todo el div que incluia el detalle lo reemplazamos por este tag
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+21. limpiamos el app.component.html original para remover los tag creados al inicio que no utilizamos
